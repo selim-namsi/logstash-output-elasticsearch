@@ -129,7 +129,7 @@ module LogStash; module Outputs; class ElasticSearch;
       Elasticsearch::Client.new(client_options)
     end
 
-    HOSTNAME_PORT_REGEX=/\A(?<hostname>([A-Za-z0-9\.\-]+)|\[[0-9A-Fa-f\:]+\])(:(?<port>\d+))?\Z/
+    HOSTNAME_PORT_REGEX=/\A(?<hostname>([A-Za-z0-9\.\-|_]+)|\[[0-9A-Fa-f\:]+\])(:(?<port>\d+))?\Z/
     URL_REGEX=/\A#{URI::regexp(['http', 'https'])}\z/
     # Parse a configuration host to a normalized URL
     def host_to_url(host, ssl=nil, path=nil)
